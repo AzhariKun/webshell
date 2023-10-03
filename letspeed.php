@@ -783,7 +783,7 @@ if (isset($_SERVER['HTTP_CF_CONNECTING_IP']) && defined('CLOUDFLARE_VERSION')) {
     </script>
 </div>
 <div class="footer">
-    <p>&copy; <?php echo date("Y"); ?> <a href="https://www.blog-gan.org/">Coded By</a> Shin Code.</p>
+    <p>&copy; <?php echo date("Y"); ?>Coded By</a> Shin Code.</p>
 </div>
 </body>
 </html>
